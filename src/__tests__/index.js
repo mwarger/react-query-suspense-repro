@@ -28,11 +28,11 @@ describe("userepo hook", () => {
   it("provides correct value for repo", async () => {
     const {
       waitForValueToChange,
-      result: { current },
+      result,
     } = renderHook(() => useRepo());
-    console.log("current", current);
-    await waitForValueToChange(() => current);
+    console.log("current", result.current);
+    await waitForValueToChange(() => result.current);
 
-    expect(current.data).toStrictEqual("asdf");
+    expect(result.current.data).toStrictEqual({"name":"react-query"});
   });
 });
